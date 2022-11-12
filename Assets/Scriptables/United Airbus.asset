@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd7bad4dfeb5a34f8d16b9e64da893b, type: 3}
   m_Name: United Airbus
   m_EditorClassIdentifier: 
-  type: 0
+  type: 1
   brand: 1
   planeMaterial: {fileID: 2100000, guid: efe0fd33ce8a1094bb58b3cd709403fc, type: 2}
