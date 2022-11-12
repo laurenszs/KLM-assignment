@@ -12,12 +12,13 @@ public class PlaneUtils : MonoBehaviour
 
     public bool park;
 
+    [SerializeField] private AirPlaneScriptable planeScriptable;
+
     // Use this for initialization
     private void OnEnable()
     {
         _agent = GetComponent<NavMeshAgent>();
         _timer = wanderTimer;
-        
     }
 
     // Update is called once per frame
