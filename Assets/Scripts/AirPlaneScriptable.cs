@@ -6,18 +6,18 @@ public class AirPlaneScriptable : ScriptableObject
     public enum Type
     {
         Private,
-        Airbus, 
+        Airbus,
     }
 
-
-    public string type;
+    public Type type;
 
     public enum Brand
     {
         KLM,
         Spirit,
-        United
-    };
+        Emirates
+    }
 
     public Brand brand;
+    public Material planeMaterial;
 }

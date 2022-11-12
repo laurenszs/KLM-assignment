@@ -5,23 +5,33 @@ public class PlaneUtils : MonoBehaviour
 {
     public float wanderRadius;
     public float wanderTimer;
-
+    public bool park;
+    
+    [SerializeField] private AirPlaneScriptable planeScriptable;
+    
     private Transform _target;
     private NavMeshAgent _agent;
     private float _timer;
 
-    public bool park;
 
-    [SerializeField] private AirPlaneScriptable planeScriptable;
-
-    // Use this for initialization
-    private void OnEnable()
+    private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
         _timer = wanderTimer;
+
+        ApplyPrefab();
     }
 
-    // Update is called once per frame
+    private void ApplyPrefab()
+    {
+        name = $"{planeScriptable.brand.ToString()} {planeScriptable.type.ToString()}";
+        var children = GetComponentsInChildren<MeshRenderer>();
+        foreach (var mRenderer in children) //set material to all renderers on plane
+        {
+            mRenderer.material = planeScriptable.planeMaterial;
+        }
+    }
+
     private void Update()
     {
         if (!park)
@@ -36,6 +46,7 @@ public class PlaneUtils : MonoBehaviour
         }
     }
 
+    //generates target for navmesh to go to
     private static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
     {
         var randDirection = Random.insideUnitSphere * dist;

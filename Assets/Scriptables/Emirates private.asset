@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bd7bad4dfeb5a34f8d16b9e64da893b, type: 3}
-  m_Name: Airplane
+  m_Name: Emirates private
   m_EditorClassIdentifier: 
-  type: 
-  brand: 0
+  type: 0
+  brand: 2
+  planeMaterial: {fileID: 2100000, guid: 1fcbfd608011ddb4cbd0fb9368315e8a, type: 2}

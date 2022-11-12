@@ -197,6 +197,7 @@ MonoBehaviour:
   wanderRadius: 50
   wanderTimer: 4
   park: 0
+  planeScriptable: {fileID: 0}
 --- !u!1001 &1312121673476406559
 PrefabInstance:
   m_ObjectHideFlags: 0

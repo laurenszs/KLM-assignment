@@ -7,14 +7,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public int hangarReadiness;
-    [SerializeField] private Transform[] hangarList = new Transform[3];
 
+    [SerializeField] private Transform[] hangarList = new Transform[3];
     [SerializeField] private GameObject[] planesList = new GameObject[3];
     [SerializeField] private Image trafficLight;
+
     private float _lightIntensity = 25;
 
 
-    // Start is called before the first frame update
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        for (var i = 0; i < hangarList.Length; i++) //adds number to hangar
+        for (var i = 0; i < hangarList.Length; i++) //adds number to hangar TMP
         {
             hangarList[i].GetComponentInChildren<TextMeshPro>().text = (i + 1).ToString();
         }
@@ -41,18 +41,18 @@ public class GameManager : MonoBehaviour
     {
         for (var i = 0; i < planesList.Length; i++)
         {
-            var navM = planesList[i].GetComponent<NavMeshAgent>();
             planesList[i].GetComponent<PlaneUtils>().park = !planesList[i].GetComponent<PlaneUtils>().park;
+
             if (planesList[i].GetComponent<PlaneUtils>().park)
             {
-                navM.SetDestination(hangarList[i].position);
+                planesList[i].GetComponent<NavMeshAgent>().SetDestination(hangarList[i].position);
             }
         }
     }
 
     public void LightSwitch()
     {
-        foreach (var plane in planesList)
+        foreach (var plane in planesList) //turn on/off depending on current state
         {
             plane.GetComponentInChildren<Light>().intensity = plane.GetComponentInChildren<Light>().intensity switch
             {

@@ -14,7 +14,6 @@ public class HangarUtils : MonoBehaviour
         }
     }
 
-
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
